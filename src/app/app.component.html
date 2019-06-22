@@ -16,7 +16,7 @@
     <div *ngFor="let option of options;let row_index = index">
       <span>{{option.title +(row_index+1)}}</span>
       <span *ngFor="let rank of options;let column_index=index">
-        <input type="radio" name="{{row_index}}" class="{{column_index}}" (click)="check(column_index,$event)">
+        <input type="radio" name="{{row_index}}" class="{{column_index}}" (click)="check(row_index,column_index,$event)">
       </span>
     </div>
   </div>
