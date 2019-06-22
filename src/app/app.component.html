@@ -1,10 +1,6 @@
 <section class="editor">
   <strong>Editor</strong>
-  <div>
-    <label>Rank No.</label>
-    <input type="number" [(ngModel)]="rank_no">
-  </div>
-  <div>
+    <div>
     <label>Add option</label>
     <button (click)="addOption()">+</button>
     <div *ngFor="let option of options;let i = index">
@@ -17,19 +13,11 @@
   <strong>Builder</strong>
   <div class="builder">
     <label>Question title goes here</label><br>
-    <div *ngFor="let option of options;let i = index">
-      <span>{{option.title +(i+1)}}</span>
-      <span *ngFor="let rank of rankArray">
-        <input type="radio" name="{{i}}" class="{{rank}}" (click)="check(rank,$event)">
+    <div *ngFor="let option of options;let row_index = index">
+      <span>{{option.title +(row_index+1)}}</span>
+      <span *ngFor="let rank of options;let column_index=index">
+        <input type="radio" name="{{row_index}}" class="{{column_index}}" (click)="check(column_index,$event)">
       </span>
     </div>
-    <table>
-      <thead>
-        <tr>
-          <td></td>
-          <th></th>
-        </tr>
-      </thead>
-    </table>
   </div>
 </section>
