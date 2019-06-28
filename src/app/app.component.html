@@ -11,7 +11,7 @@
 <hr>
 <section>
   <strong>Builder</strong>
-  <div class="builder">
+  <!-- <div class="builder">
     <label>Question title goes here</label><br>
     <div *ngFor="let option of options;let row_index = index">
       <span>{{option.title +(row_index+1)}}</span>
@@ -20,7 +20,7 @@
           (click)="check(row_index,column_index,$event)">
       </span>
     </div>
-  </div>
+  </div> -->
   <div>
     <table>
       <thead>
@@ -30,9 +30,9 @@
       <tbody>
         <div *ngFor="let option of options;let row_index = index" style="display: table-row">
           <td>{{option.title +(row_index+1)}}</td>
-          <td *ngFor="let rank of options;let column_index=index">
-            <input type="radio" name="{{row_index}}" class="{{column_index}}"
-              (click)="check(row_index,column_index,$event)">
+          <td *ngFor="let rank of option.scale;let column_index=index">
+            <input type="radio" name="{{row_index}}" 
+              (click)="check(row_index,rank,column_index)" [checked]="rank.selected" >
           </td>
         </div>
       </tbody>
